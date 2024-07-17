@@ -9,7 +9,7 @@ const logger = require('./utils/logger');
 
 const app = express();
 const httpServer = http.createServer(app);
-const io = socketIo(server, {
+const io = socketIo(httpServer, {
     cors: {
         origin: process.env.FRONTEND_URL,
         methods: ["GET","POST"],
