@@ -1,4 +1,4 @@
-const mongoose = require('moongose');
+const mongoose = require('mongoose');
 
 const DeviceSchema = new mongoose.Schema({
     name: {type: String, required: true},
