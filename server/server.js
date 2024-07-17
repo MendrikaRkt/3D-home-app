@@ -51,7 +51,7 @@ io.on('connection', (socket) => {
 
 const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+const server = app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
 logger.info('This is an informational message');
 logger.error('This is an error message', { error: new Error('Something went wrong') });
