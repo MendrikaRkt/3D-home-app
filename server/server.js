@@ -16,9 +16,17 @@ const io = socketIo(httpServer, {
     }
 });
 
-app.use(cors({ origin: 'https://MendrikaRkt.github.io/3D-home-app' }));
-app.use(cors());
+app.use(cors({ origin: 'https://mendrikarkt.github.io/3D-home-app' }));
 app.use(express.json());
+
+app.use((req, res, next) => {
+    if (req.url && req.url.pathname) {
+        console.log(`Request URL pathname: ${req.url.pathname}`);
+    } else {
+        console.log('Request URL or pathname is undefined');
+    }
+    next();
+});
 
 const uri = process.env.MONGO_URI || 'mongodb+srv://MikeAngelius:ssE0PcsMvJ85L9rp@cluster3dhomeapp.by3cpgp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3dHomeApp';
 
