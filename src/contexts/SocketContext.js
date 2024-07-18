@@ -8,7 +8,7 @@ export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io('http://your-socket-server-url');
+    const newSocket = io('https://threed-home-app.onrender.com');
     setSocket(newSocket);
 
     return () => newSocket.close();
