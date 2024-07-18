@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+require('dotenv').config();
 import express from 'express';
 import mongoose from 'mongoose';
 import http from 'http';
@@ -7,11 +7,10 @@ import cors from 'cors';
 import mqttClient from './mqtt';
 import logger from './utils/logger';
 
-dotenv.config();
 
 const app = express();
 const httpServer = http.createServer(app);
-const io = new socketIo(httpServer, {
+const io = socketIo(httpServer, {
     cors: {
         origin: process.env.FRONTEND_URL,
         methods: ["GET","POST"],
@@ -38,9 +37,9 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Import routes
-const authRoutes = await import('./routes/auth');
-const deviceRoutes = await import('./routes/devices');
-const eventRoutes = await import('./routes/events');
+const authRoutes = require('./routes/auth');
+const deviceRoutes = require('./routes/devices');
+const eventRoutes = require('./routes/events');
 
 // Use routes
 app.use('/api/auth', authRoutes);
