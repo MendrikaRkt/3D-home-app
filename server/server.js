@@ -17,6 +17,7 @@ const io = socketIo(httpServer, {
 });
 
 app.use(cors({ origin: 'https://MendrikaRkt.github.io/3D-home-app' }));
+app.use(cors());
 app.use(express.json());
 
 const uri = process.env.MONGO_URI || 'mongodb+srv://MikeAngelius:ssE0PcsMvJ85L9rp@cluster3dhomeapp.by3cpgp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3dHomeApp';
