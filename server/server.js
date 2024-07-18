@@ -1,11 +1,11 @@
 require('dotenv').config();
-import express from 'express';
-import mongoose from 'mongoose';
-import http from 'http';
-import { Server as socketIo } from 'socket.io';
-import cors from 'cors';
-import mqttClient from './mqtt';
-import logger from './utils/logger';
+const express = require('express');
+const mongoose = require('mongoose');
+const http = require('http');
+const socketIo = require('socket.io');
+const cors = require('cors');
+const mqtt = require('mqtt');
+const logger = require('./utils/logger');
 
 
 const app = express();
