@@ -31,32 +31,32 @@ function App() {
 
   return (
     <AuthProvider>
-    <SocketProvider>
-    <Router>
-        <div className="App">
-          <Routes>
-            <Route exact path="/">
-              {user ? (
-                <>
-                  <Home3D />
-                  {devices.map(device => (
-                    <DeviceControl key={device._id} device={device} />
-                  ))}
-                </>
-              ) : (
-                <Login setUser={setUser} />
-              )}
-            </Route>
-            <Route path="/register" component={Register} />
-          </Routes>
-        </div>
-      
-       <div>
-      <DeviceList />
-      <DeviceScene />
-    </div>
-    </Router>
-    </SocketProvider>
+      <SocketProvider>
+        <Router>
+          <div className="App">
+            <Routes>
+              <Route exact path="/">
+                {user ? (
+                  <>
+                    <Home3D />
+                    {devices.map(device => (
+                      <DeviceControl key={device._id} device={device} />
+                    ))}
+                  </>
+                ) : (
+                  <Login setUser={setUser} />
+                )}
+              </Route>
+              <Route path="/register" component={Register} />
+            </Routes>
+          </div>
+
+          <div>
+            <DeviceList />
+            <DeviceScene />
+          </div>
+        </Router>
+      </SocketProvider>
     </AuthProvider>
   );
 }
