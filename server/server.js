@@ -19,9 +19,9 @@ const io = socketIo(httpServer, {
 app.use(cors({ origin: 'https://MendrikaRkt.github.io' }));
 app.use(express.json());
 
-const mongoURI = process.env.MONGO_URI;
+const uri = process.env.MONGO_URI || 'mongodb+srv://MikeAngelius:ssE0PcsMvJ85L9rp@cluster3dhomeapp.by3cpgp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3dHomeApp';
 
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
