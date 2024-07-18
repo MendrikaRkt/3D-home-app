@@ -1,20 +1,23 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const http = require('http');
-const socketIo = require('socket.io');
-const cors = require('cors');
-const mqttClient = require('./mqtt');
-const logger = require('./utils/logger');
+import dotenv from 'dotenv';
+import express from 'express';
+import mongoose from 'mongoose';
+import http from 'http';
+import { Server as socketIo } from 'socket.io';
+import cors from 'cors';
+import mqttClient from './mqtt';
+import logger from './utils/logger';
+
+dotenv.config();
 
 const app = express();
 const httpServer = http.createServer(app);
-const io = socketIo(httpServer, {
+const io = new socketIo(httpServer, {
     cors: {
         origin: process.env.FRONTEND_URL,
         methods: ["GET","POST"],
     }
 });
+
 
 app.use(cors({ origin: 'https://mendrikarkt.github.io/3D-home-app' }));
 app.use(express.json());
@@ -35,9 +38,9 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Import routes
-const authRoutes = require('./routes/auth');
-const deviceRoutes = require('./routes/devices');
-const eventRoutes = require('./routes/events');
+const authRoutes = await import('./routes/auth');
+const deviceRoutes = await import('./routes/devices');
+const eventRoutes = await import('./routes/events');
 
 // Use routes
 app.use('/api/auth', authRoutes);
