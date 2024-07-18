@@ -16,7 +16,7 @@ const io = socketIo(httpServer, {
     }
 });
 
-app.use(cors());
+app.use(cors({ origin: 'https://MendrikaRkt.github.io' }));
 app.use(express.json());
 
 const mongoURI = process.env.MONGO_URI;
