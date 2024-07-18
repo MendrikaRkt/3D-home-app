@@ -26,7 +26,7 @@ app.use((req, res, next) => {
     if (req.url && req.url.pathname) {
         console.log(`Request URL pathname: ${req.url.pathname}`);
     } else {
-        console.log('Request URL or pathname is undefined');
+        console.log('Request URL or pathname is undefined', res);
     }
     next();
 });
