@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/3D-home-app/static/css/main.e6c13ad2.css",
+    "main.js": "/3D-home-app/static/js/main.cfde179d.js",
+    "static/js/453.419a5d54.chunk.js": "/3D-home-app/static/js/453.419a5d54.chunk.js",
+    "index.html": "/3D-home-app/index.html",
+    "main.e6c13ad2.css.map": "/3D-home-app/static/css/main.e6c13ad2.css.map",
+    "main.cfde179d.js.map": "/3D-home-app/static/js/main.cfde179d.js.map",
+    "453.419a5d54.chunk.js.map": "/3D-home-app/static/js/453.419a5d54.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.cfde179d.js"
+  ]
+}
