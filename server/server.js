@@ -22,8 +22,8 @@ app.use(cors({ origin: 'https://mendrikarkt.github.io/3D-home-app' }));
 app.use(express.json());
 
 app.use((req, res, next) => {
-    if (req.url && req.url.pathname) {
-        console.log(`Request URL pathname: ${req.url.pathname}`);
+    if (req.path) {
+        console.log(`Request URL pathname: ${req.path}`);
     } else {
         console.log('Request URL or pathname is undefined', res);
     }
@@ -61,7 +61,7 @@ io.on('connection', (socket) => {
 
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+const server = httpServer.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
 logger.info('This is an informational message');
 logger.error('This is an error message', { error: new Error('Something went wrong') });
